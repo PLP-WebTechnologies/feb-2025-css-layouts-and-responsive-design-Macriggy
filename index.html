@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout with Flexbox and Grid</title>
+  <style>
+    /* Basic reset */
+    body, h1, p, nav, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #333;
+      padding: 15px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* Layout Section */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr; /* Default 2-column layout */
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .sidebar {
+      background-color: #ddd;
+      padding: 20px;
+    }
+
+    .main-content {
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    /* Media Queries for Mobile, Tablet, and Desktop */
+
+    /* Mobile Devices */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column; /* Stack the navigation items */
+        align-items: center;
+      }
+
+      .container {
+        grid-template-columns: 1fr; /* Stacks the content and sidebar */
+      }
+    }
+
+    /* Tablet Devices */
+    @media (max-width: 900px) {
+      nav ul {
+        flex-direction: row;
+        justify-content: space-evenly; /* Align items evenly */
+      }
+
+      .container {
+        grid-template-columns: 1fr 2fr; /* Adjust the grid layout */
+      }
+    }
+
+    /* Desktop Devices */
+    @media (min-width: 1200px) {
+      .container {
+        grid-template-columns: 1fr 3fr; /* Ensure the large layout with bigger ratio */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Section -->
+  <div class="container">
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+      <p>This is the sidebar content.</p>
+    </div>
+
+    <div class="main-content">
+      <h1>Main Content</h1>
+      <p>This is the main content area.</p>
+      <p>It can contain anything like text, images, or other elements.</p>
+    </div>
+  </div>
+
+</body>
+</html>
